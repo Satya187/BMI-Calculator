@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            padding-left: 100px;
+            padding-right: 100px;
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Arial, sans-serif; /* Apply Arial font to the heading */
+        }
+
+        .centered-text {
+            text-align: center;
+        }
+
+        th, td, table {
+            width: 20%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7e1e1;
+        }
+
+        .border {
+            border: 1px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+        }
+
+        .image {
+            max-width: 1400px;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .input-container {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 100px;
+            padding: 5px;
+        }
+
+        /* Add a 6mm gap (about 6px) between label and input */
+        label {
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="hello">Body Mass Index Calculator</h1>
+    <img class="image" src="https://www.fitterfly.com/blog/wp-content/uploads/2023/02/Understanding-Your-BMI-A-Guide-to-Reading-a-BMI-Chart.jpg" alt="BMI Chart" width="1400" height="400">
+    <div class="main">
+        <div class="input-container">
+            <form class="pure-form" method="POST" action="/">
+                <label for="weight">Weight in kgs:</label>
+                <input type="text" name="weight" id="weight"><br><br>
+                <label for="height">Height in cms:</label>
+                <input type="text" name="height" id="height"><br><br>
+                <button type="submit" class="pure-button pure-button-primary" value="Calculate">Calculate</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="main">
+        {% if bmi_result %}
+            <p>Your BMI is {{ bmi_result[0] }} and you are {{ bmi_result[1] }}.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
